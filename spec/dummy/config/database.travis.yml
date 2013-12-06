@@ -1,0 +1,4 @@
+test:
+  adapter: postgresql
+  database: active_record_embedded_doc_test
+  username: postgres
