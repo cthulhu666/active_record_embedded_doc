@@ -4,6 +4,8 @@ rvm:
   - "2.0.0"
 services:
   - postgresql
+addons:
+  postgresql: 9.3
 before_script:
   - cp spec/dummy/config/database.travis.yml spec/dummy/config/database.yml
   - psql -c 'create database active_record_embedded_doc_test' -U postgres
