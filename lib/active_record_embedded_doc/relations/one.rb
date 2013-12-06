@@ -9,10 +9,13 @@ module ActiveRecordEmbeddedDoc
           elsif value.is_a?(klazz)
             value.embedded_in = context if value.embedded_in.nil?
             value
-          else
+          elsif value.is_a?(Hash)
+            value = unwrap_hash(value, klazz)
             obj = klazz.new(value)
             obj.embedded_in = context
             obj
+          else
+            # raise exception
           end
         end
 
@@ -28,6 +31,15 @@ module ActiveRecordEmbeddedDoc
 
         def unwrap(value)
           value.is_a?(Attribute) ? value.value : value
+        end
+
+        def unwrap_hash(hash, klazz)
+          root = klazz.model_name.element
+          if hash.key?(root)
+            hash[root]
+          else
+            hash
+          end
         end
       end
 

@@ -20,12 +20,11 @@ module ActiveRecordEmbeddedDoc
       end
 
       def initialize_attributes(attributes, options = {})
-        serialized = (options.delete(:serialized) { true }) ? :serialized : :unserialized
         super(attributes, options)
 
         relations.each do |key, coder|
           if attributes.key?(key)
-            attributes[key] = Attribute.new(self, coder, attributes[key], serialized)
+            attributes[key] = Attribute.new(self, coder, attributes[key])
           end
         end
 
@@ -35,7 +34,7 @@ module ActiveRecordEmbeddedDoc
 
     def type_cast_attribute_for_write(column, value)
       if column && coder = self.class.relations[column.name]
-        Attribute.new(self, coder, value, :unserialized)
+        Attribute.new(self, coder, value)
       else
         super
       end

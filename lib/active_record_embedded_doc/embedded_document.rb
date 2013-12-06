@@ -42,10 +42,11 @@ module ActiveRecordEmbeddedDoc
     end
 
     def as_json(options = nil)
-      self.class.fields.keys.inject({}) do |h, field|
+      hash = self.class.fields.keys.inject({}) do |h, field|
         h[field] = send "#{field}"
         h
       end
+      {"#{self.class.model_name.element}" => hash}
     end
 
   end

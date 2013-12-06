@@ -11,9 +11,15 @@ module ActiveRecordEmbeddedDoc
               v.embedded_in = context if v.embedded_in.nil?
               v
             else
-              obj = klazz.new(v)
-              obj.embedded_in = context
-              obj
+              if polymorphic?(klazz)
+                obj = guess_class(klazz, v.keys.first).new(v.values.first)
+                obj.embedded_in = context
+                obj
+              else
+                obj = klazz.new(v)
+                obj.embedded_in = context
+                obj
+              end
             end
           end
         end
@@ -30,6 +36,15 @@ module ActiveRecordEmbeddedDoc
 
         def unwrap(value)
           value.is_a?(Attribute) ? value.value : value
+        end
+
+        def polymorphic?(klazz)
+          klazz.subclasses.present?
+        end
+
+        def guess_class(klazz, s)
+          name = s.to_s.classify
+          klazz.const_get(name) rescue name.constantize
         end
       end
 

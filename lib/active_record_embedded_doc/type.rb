@@ -7,11 +7,7 @@ module ActiveRecordEmbeddedDoc
     end
 
     def type_cast(value)
-      if value.state == :serialized
-        value.unserialized_value( column.type_cast(value.value) )
-      else
-        value.unserialized_value
-      end
+      value.unserialized_value(column.type_cast(value.value))
     end
 
     def type
