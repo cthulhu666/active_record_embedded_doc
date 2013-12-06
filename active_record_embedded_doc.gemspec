@@ -7,11 +7,11 @@ require "active_record_embedded_doc/version"
 Gem::Specification.new do |s|
   s.name        = "active_record_embedded_doc"
   s.version     = ActiveRecordEmbeddedDoc::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of ActiveRecordEmbeddedDoc."
-  s.description = "TODO: Description of ActiveRecordEmbeddedDoc."
+  s.authors     = ["Jakub Głuszecki"]
+  s.email       = ["jakub.gluszecki@gmail.com"]
+  s.homepage    = "https://github.com/cthulhu666/active_record_embedded_doc"
+  s.summary     = "Mongo-like embedded documents for ActiveRecord+PostgreSQL"
+  s.description = "Mongo-like embedded documents for ActiveRecord+PostgreSQL using json column type"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
