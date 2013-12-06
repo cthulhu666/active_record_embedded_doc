@@ -1,5 +1,5 @@
 = ActiveRecordEmbeddedDoc
 
-[![Build Status](https://travis-ci.org/cthulhu666/active_record_embedded_doc.png?branch=master)](https://travis-ci.org/cthulhu666/active_record_embedded_doc)
+{<img src="https://travis-ci.org/cthulhu666/active_record_embedded_doc.png" />}[https://travis-ci.org/cthulhu666/active_record_embedded_doc]
 
 This project rocks and uses MIT-LICENSE.
