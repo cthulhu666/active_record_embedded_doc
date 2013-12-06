@@ -101,6 +101,12 @@ describe Person do
       expect(p.reload.contact_data.last.email).to eq('baz@foo.com')
     end
 
+    it "fails validation with wrong number format" do
+      p = FactoryGirl.build :person, contact_data: [ContactData::Phone.new(number: 'xxx')]
+      expect(p).to be_invalid
+      expect(p).to have(1).error_on('contact_data')
+    end
+
   end
 
 end

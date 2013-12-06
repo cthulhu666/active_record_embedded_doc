@@ -3,6 +3,8 @@ class ContactData
 
   class Phone < ContactData
     field :number
+
+    validates :number, format: /\d{9}/
   end
 
   class Email < ContactData

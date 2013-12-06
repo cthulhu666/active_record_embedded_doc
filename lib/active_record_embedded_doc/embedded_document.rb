@@ -49,5 +49,9 @@ module ActiveRecordEmbeddedDoc
       {"#{self.class.model_name.element}" => hash}
     end
 
+    def marked_for_destruction?
+      false # for now just to make ActiveRecord::Validations::AssociatedValidator work
+    end
+
   end
 end
