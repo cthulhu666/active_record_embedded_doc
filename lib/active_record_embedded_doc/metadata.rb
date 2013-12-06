@@ -3,7 +3,11 @@ module ActiveRecordEmbeddedDoc
 
     def initialize(*)
       super
-      self.klazz = name.to_s.classify.constantize
+      if class_name?
+        self.klazz = class_name.to_s.constantize
+      else
+        self.klazz = name.to_s.classify.constantize
+      end
     end
 
     def load(data, context)
