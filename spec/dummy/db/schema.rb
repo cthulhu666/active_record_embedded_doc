@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20131204121934) do
     t.json     "contact_data"
     t.json     "addresses"
     t.json     "family"
-    t.text     "foo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
