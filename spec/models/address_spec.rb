@@ -28,4 +28,8 @@ describe Address do
     expect(addr.changed_attributes).to include('street')
   end
 
+  it "has nice working inspect" do
+    expect(Address.new(street: 'Foo').inspect).to eq('#<Address street: "Foo", city: nil, zip: nil>')
+  end
+
 end
