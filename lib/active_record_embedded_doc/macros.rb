@@ -26,7 +26,7 @@ module ActiveRecordEmbeddedDoc
 
       def characterize(name, relation, options)
         Metadata.new({
-                         relation: relation,
+                         relation: relation.new(self.class),
                          inverse_class_name: self.name,
                          name: name
                      }.merge(options))

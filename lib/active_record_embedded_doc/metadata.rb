@@ -11,11 +11,11 @@ module ActiveRecordEmbeddedDoc
     end
 
     def load(data, context)
-      relation._load klazz, context, data
+      relation._load context, data
     end
 
     def dump(data)
-      relation._dump klazz, data
+      relation._dump data
     end
 
   end

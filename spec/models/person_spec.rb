@@ -8,12 +8,12 @@ describe Person do
 
   it "has 'addresses' relation" do
     expect(Person.relations).to include(:addresses)
-    expect(Person.relations.addresses.relation).to eq(ActiveRecordEmbeddedDoc::Relations::Many)
+    expect(Person.relations.addresses.relation).to be_a(ActiveRecordEmbeddedDoc::Relations::Many)
   end
 
   it "has 'family' relation" do
     expect(Person.relations).to include(:family)
-    expect(Person.relations.family.relation).to eq(ActiveRecordEmbeddedDoc::Relations::One)
+    expect(Person.relations.family.relation).to be_a(ActiveRecordEmbeddedDoc::Relations::One)
   end
 
   it "is unchanged after initialization" do
